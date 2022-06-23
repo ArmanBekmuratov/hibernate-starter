@@ -1,0 +1,7 @@
+insert
+into
+.users
+1(username, firstname, lastname, birth_date, age)
+values
+(?, ?, ?, ?, ?)
+
