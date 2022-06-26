@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 
@@ -21,18 +22,23 @@ import javax.persistence.*;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
     private String username;
-    private String firstname;
-    private String lastname;
 
-    @Convert(converter = BirthdayConverter.class)
-    @Column(name = "birth_date")
-    private BirthDay birthdate;
-
+    @Embedded
+    private PersonalInfo personalInfo;
 
     @Type(type = "jsonb")
     private String info;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
 }

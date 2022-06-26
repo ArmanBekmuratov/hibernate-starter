@@ -1,5 +1,8 @@
 package com.abdev;
 
+import com.abdev.entity.BirthDay;
+import com.abdev.entity.Company;
+import com.abdev.entity.PersonalInfo;
 import com.abdev.entity.User;
 import com.abdev.util.HibernateUtil;
 import org.hibernate.Session;
@@ -8,36 +11,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class HibernateRunner {
 
     private static final Logger log =  LoggerFactory.getLogger(HibernateRunner.class);
 
     public static void main(String[] args) throws SQLException {
+        Company company = Company.builder()
+                .name("Google")
+                .build();
         User user = User.builder()
-                .username("john12@gmail.com")
-                .firstname("John")
-                .lastname("Trump")
+                .username("Joe@gmail.com")
+                .personalInfo(PersonalInfo.builder()
+                        .firstname("Joe")
+                        .lastname("Biden")
+                        .birthdate(new BirthDay(LocalDate.of(2000, 5, 23)))
+                        .build())
+                .company(company)
                 .build();
 
-        log.info("User entity is transient state, object: {}", user);
-
         try (var sessionFactory = HibernateUtil.buildSessionFactory()) {
-            Session session1 = sessionFactory.openSession();
-            try (session1) {
+            Session session = sessionFactory.openSession();
+            try (session) {
 
-                Transaction transaction = session1.beginTransaction();
-                log.info("Transaction is created: {}", transaction);
+                Transaction transaction = session.beginTransaction();
 
-                session1.saveOrUpdate(user);
-                log.info("User is in persistent state: {}, session {} ", user, session1);
+                session.save(company);
+                session.save(user);
 
-                session1.getTransaction().commit();
+                session.getTransaction().commit();
             }
-            log.warn("Session is in detached state: {}, session {} ", user, session1);
-        } catch (Exception e) {
-            log.error("Exception: ", e);
-            throw e;
         }
     }
 }
