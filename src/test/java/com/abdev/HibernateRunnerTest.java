@@ -1,6 +1,7 @@
 package com.abdev;
 
 import com.abdev.entity.Company;
+import com.abdev.entity.Profile;
 import com.abdev.entity.User;
 import com.abdev.util.HibernateUtil;
 import lombok.Cleanup;
@@ -21,6 +22,31 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkOneToOne() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            User user = User.builder()
+                    .username("john@gmail.com")
+                    .build();
+
+            Profile profile = Profile.builder()
+                    .language("en")
+                    .street("1st")
+                    .build();
+
+            session.save(user);
+            profile.setUser(user);
+            session.save(profile);
+
+
+            session.getTransaction().commit();
+        }
+
+    }
 
     @Test
     void checkOrphanRemoval() {

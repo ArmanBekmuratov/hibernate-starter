@@ -14,6 +14,7 @@
 
     <mapping class="com.abdev.entity.User"/>
     <mapping class="com.abdev.entity.Company"/>
+    <mapping class="com.abdev.entity.Profile"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>
