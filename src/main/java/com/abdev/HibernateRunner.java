@@ -9,7 +9,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -37,8 +36,11 @@ public class HibernateRunner {
 
                 Transaction transaction = session.beginTransaction();
 
-                session.save(company);
-                session.save(user);
+                User user1 = session.get(User.class, 1L);
+                Company company1 = user1.getCompany();
+                String name = company1.getName();
+//                session.save(company);
+//                session.save(user);
 
                 session.getTransaction().commit();
             }
