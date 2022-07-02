@@ -27,11 +27,31 @@ class HibernateRunnerTest {
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            Company company = Company.builder()
+            Company google = Company.builder()
                     .name("Google")
                     .build();
 
-            session.save(company);
+            session.save(google);
+
+            Programmer programmer = Programmer.builder()
+                    .username("Steve@gmail.com")
+                    .language(Language.JAVA)
+                    .company(google)
+                    .build();
+            session.save(programmer);
+
+            Manager manager = Manager.builder()
+                    .username("Ben@gmail.com")
+                    .projectName("Starter")
+                    .company(google)
+                    .build();
+            session.save(manager);
+            session.flush();
+
+            session.clear();
+
+            Programmer programmer1 = session.get(Programmer.class, 1L);
+            User manager1 = session.get(User.class, 2L);
 
             session.getTransaction().commit();
 
@@ -87,19 +107,18 @@ class HibernateRunnerTest {
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            User user = User.builder()
-                    .username("john12@gmail.com")
-                    .build();
+//            User user = User.builder()
+//                    .username("john12@gmail.com")
+//                    .build();
 
             Profile profile = Profile.builder()
                     .language("en")
                     .street("1st")
                     .build();
 
-            session.save(user);
+//            session.save(user);
 //            profile.setUser(user);
 //            session.save(profile);
-
 
             session.getTransaction().commit();
         }
@@ -159,13 +178,13 @@ class HibernateRunnerTest {
                 .name("Epam")
                 .build();
 
-        User user = User.builder()
-                .username("ivan12@gmail.com")
-                .build();
+//        User user = User.builder()
+//                .username("ivan12@gmail.com")
+//                .build();
 //        user.setCompany(company);
 //        company.getUsers().add(user);
 
-        company.addUser(user);
+//        company.addUser(user);
 
         session.save(company);
 
@@ -203,8 +222,7 @@ class HibernateRunnerTest {
 
     @Test
     void checkReflectionApi() throws SQLException, IllegalAccessException {
-        User user = User.builder()
-                .build();
+        User user = null;
 
         String sql = """
                 insert

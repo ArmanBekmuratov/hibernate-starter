@@ -20,15 +20,15 @@ public class HibernateRunner {
         Company company = Company.builder()
                 .name("Google")
                 .build();
-        User user = User.builder()
-                .username("Joe@gmail.com")
-                .personalInfo(PersonalInfo.builder()
-                        .firstname("Joe")
-                        .lastname("Biden")
-                        .birthdate(new BirthDay(LocalDate.of(2000, 5, 23)))
-                        .build())
-                .company(company)
-                .build();
+        User user = null;
+//                .username("Joe@gmail.com")
+//                .personalInfo(PersonalInfo.builder()
+//                        .firstname("Joe")
+//                        .lastname("Biden")
+//                        .birthdate(new BirthDay(LocalDate.of(2000, 5, 23)))
+//                        .build())
+//                .company(company)
+//                .build();
 
         try (var sessionFactory = HibernateUtil.buildSessionFactory()) {
             Session session = sessionFactory.openSession();

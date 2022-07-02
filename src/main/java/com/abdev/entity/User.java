@@ -18,13 +18,13 @@ import java.util.Set;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = {"company", "profile", "userChats"})
-@Builder
 @Entity
 @Table(name = "users")
-public class User {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(unique = true)
@@ -45,11 +45,10 @@ public class User {
 
     @OneToOne(mappedBy = "user",
             cascade = CascadeType.ALL,
-            optional = false,
             fetch = FetchType.LAZY)
     private Profile profile;
 
-    @Builder.Default
+    //@Builder.Default
     @OneToMany(mappedBy = "user")
     private List<UsersChat> userChats = new ArrayList<>();
 
