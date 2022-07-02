@@ -2,11 +2,10 @@ package com.abdev.entity;
 
 
 import lombok.*;
+import org.hibernate.annotations.SortNatural;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -25,10 +24,17 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<User> users = new HashSet<>();
+    @MapKey(name = "username")
+    //@SortNatural
+    private Map<String, User> users = new HashMap<>();
+
+    @Builder.Default
+    @ElementCollection
+    @CollectionTable(name = "company_locale" , joinColumns = @JoinColumn(name = "company_id"))
+    private List<LocaleInfo> locales = new ArrayList<>();
 
     public void addUser(User user) {
-        users.add(user);
+        users.put(user.getUsername(), user);
         user.setCompany(this);
     }
 }

@@ -1,8 +1,6 @@
 package com.abdev;
 
-import com.abdev.entity.Company;
-import com.abdev.entity.Profile;
-import com.abdev.entity.User;
+import com.abdev.entity.*;
 import com.abdev.util.HibernateUtil;
 import lombok.Cleanup;
 import org.hibernate.Session;
@@ -16,12 +14,72 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkH2() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Company company = Company.builder()
+                    .name("Google")
+                    .build();
+
+            session.save(company);
+
+            session.getTransaction().commit();
+
+        }
+    }
+
+    @Test
+    void localeInfo() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            Company company = session.get(Company.class, 7);
+//            company.getLocales().add(LocaleInfo.of("us", "Description in english"));
+//            company.getLocales().add(LocaleInfo.of("ru", "Описание на русском"));
+            company.getUsers().forEach((k,v) -> System.out.println(v));
+
+            session.getTransaction().commit();
+
+        }
+    }
+
+    @Test
+    void checkManyToMany() {
+        try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            User user = session.get(User.class, 3L);
+            Chat chat = session.get(Chat.class, 1L);
+
+            UsersChat usersChat = UsersChat.builder()
+                    .build();
+            usersChat.setUser(user);
+            usersChat.setChat(chat);
+
+            session.save(usersChat);
+
+//            Chat chat = Chat.builder()
+//                    .name("usa")
+//                    .build();
+//
+//
+//            session.save(chat);
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkOneToOne() {
@@ -30,7 +88,7 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             User user = User.builder()
-                    .username("john@gmail.com")
+                    .username("john12@gmail.com")
                     .build();
 
             Profile profile = Profile.builder()
@@ -39,8 +97,8 @@ class HibernateRunnerTest {
                     .build();
 
             session.save(user);
-            profile.setUser(user);
-            session.save(profile);
+//            profile.setUser(user);
+//            session.save(profile);
 
 
             session.getTransaction().commit();
@@ -54,8 +112,8 @@ class HibernateRunnerTest {
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            Company company = session.getReference(Company.class, 4);
-            company.getUsers().removeIf(user -> user.getId().equals(1L));
+          // Company company = session.getReference(Company.class, 4);
+          // company.getUsers().removeIf(user -> user.getId().equals(1L));
 
             session.getTransaction().commit();
         }
@@ -75,8 +133,8 @@ class HibernateRunnerTest {
 
             session.getTransaction().commit();
         }
-        Set<User> users = company.getUsers();
-        System.out.println(users.size());
+        //Set<User> users = company.getUsers();
+        //System.out.println(users.size());
     }
 
     @Test
