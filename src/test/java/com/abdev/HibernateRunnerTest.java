@@ -22,6 +22,11 @@ import java.util.stream.Collectors;
 class HibernateRunnerTest {
 
     @Test
+    void checkHql() {
+
+    }
+
+    @Test
     void checkH2() {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
