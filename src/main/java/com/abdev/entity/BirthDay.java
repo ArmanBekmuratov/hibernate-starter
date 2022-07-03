@@ -7,5 +7,4 @@ public record BirthDay(LocalDate birthDate) {
     public long getAge() {
         return ChronoUnit.YEARS.between(birthDate, LocalDate.now());
     }
-
 }

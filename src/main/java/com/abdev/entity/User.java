@@ -1,16 +1,11 @@
 package com.abdev.entity;
 
-import com.abdev.converter.BirthdayConverter;
-
 import lombok.*;
 import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 @Data
@@ -19,9 +14,9 @@ import java.util.Set;
 @EqualsAndHashCode(of = "username")
 @ToString(exclude = {"company", "profile", "userChats"})
 @Entity
+@Builder
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
+public  class User  implements Comparable<User>, BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +28,8 @@ public abstract class User {
     @Embedded
     private PersonalInfo personalInfo;
 
-  // @Type(type = "jsonb")
-  // private String info;
+    @Type(type = "jsonb")
+    private String info;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -48,8 +43,21 @@ public abstract class User {
             fetch = FetchType.LAZY)
     private Profile profile;
 
-    //@Builder.Default
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<UsersChat> userChats = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "receiver")
+    private List<Payment> payments = new ArrayList<>();
+
+    @Override
+    public int compareTo(User o) {
+        return username.compareTo(o.username);
+    }
+
+    public String fullName() {
+        return getPersonalInfo().getFirstname() + " " + getPersonalInfo().getLastname();
+    }
 
 }

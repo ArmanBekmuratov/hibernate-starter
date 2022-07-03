@@ -1,20 +1,22 @@
 package com.abdev;
 
 import com.abdev.entity.*;
+import com.abdev.util.HibernateTestUtil;
 import com.abdev.util.HibernateUtil;
 import lombok.Cleanup;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.jpa.QueryHints;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.Column;
+import javax.persistence.FlushModeType;
 import javax.persistence.Table;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,40 +25,40 @@ class HibernateRunnerTest {
 
     @Test
     void checkHql() {
-
-    }
-
-    @Test
-    void checkH2() {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            Company google = Company.builder()
-                    .name("Google")
-                    .build();
+            // HQL/JPQL
+            String firstName = "Ivan";
+            String company = "google";
+            var result = session.createQuery(
+                            "select  u from User u join u.company c " +
+                                    "where u.personalInfo.firstname = :firstname and c.name = :company ", User.class)
+                    .setParameter("firstname", firstName)
+                    .setParameter("company", company)
+                    .setFlushMode(FlushModeType.COMMIT)
+                    .setHint(QueryHints.HINT_FETCH_SIZE, "value")
+                    .list();
 
-            session.save(google);
+            var countRows = session.createQuery("update User u set u.role = 'ADMIN'")
+                    .executeUpdate();
 
-            Programmer programmer = Programmer.builder()
-                    .username("Steve@gmail.com")
-                    .language(Language.JAVA)
-                    .company(google)
-                    .build();
-            session.save(programmer);
+            session.getTransaction().commit();
+        }
+    }
 
-            Manager manager = Manager.builder()
-                    .username("Ben@gmail.com")
-                    .projectName("Starter")
-                    .company(google)
-                    .build();
-            session.save(manager);
-            session.flush();
+    @Test
+    void checkH2() {
+        try (SessionFactory sessionFactory = HibernateTestUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
 
-            session.clear();
+           Company google = Company.builder()
+                   .name("Google")
+                   .build();
 
-            Programmer programmer1 = session.get(Programmer.class, 1L);
-            User manager1 = session.get(User.class, 2L);
+           session.save(google);
 
             session.getTransaction().commit();
 
