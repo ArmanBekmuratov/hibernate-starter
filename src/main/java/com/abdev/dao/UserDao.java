@@ -99,9 +99,10 @@ public class UserDao {
      */
     public List<Object[]> isItPossible(Session session) {
         return session.createQuery("select u, avg(p.amount) from User u " +
-                    "join u.payments p " +
-                    "group by  u " +
-                    "having avg(p.amount) > (select avg(p.amount) from Payment p)", Object[].class)
+                        "join u.payments p " +
+                        "group by  u " +
+                        "having avg(p.amount) > (select avg(p.amount) from Payment p)" +
+                        "order by u.personalInfo.firstname", Object[].class)
                 .list();
     }
 
