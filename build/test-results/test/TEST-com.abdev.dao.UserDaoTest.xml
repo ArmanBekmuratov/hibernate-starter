@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.abdev.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-03T19:29:56" hostname="DESKTOP-L2SUHQG" time="0.169">
+  <properties/>
+  <testcase name="findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName()" classname="com.abdev.dao.UserDaoTest" time="0.169"/>
+  <system-out><![CDATA[[12:29:51,014] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[12:29:51,033] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 363] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[12:29:51,519] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 273] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[12:29:51,522] INFO [org.testcontainers.DockerClientFactory: 183] Docker host IP address is localhost
+[12:29:51,539] INFO [org.testcontainers.DockerClientFactory: 190] Connected to docker: 
+  Server Version: 20.10.17
+  API Version: 1.41
+  Operating System: Docker Desktop
+  Total Memory: 7916 MB
+[12:29:51,565] INFO [docker[testcontainers/ryuk:0.3.3]: 376] Creating container for image: testcontainers/ryuk:0.3.3
+[12:29:52,164] INFO [docker[testcontainers/ryuk:0.3.3]: 440] Container testcontainers/ryuk:0.3.3 is starting: 2981f375d7f3e5686c9bf8fc6180abe434b724816c6b2858512789f4e0ce6a66
+[12:29:52,899] INFO [docker[testcontainers/ryuk:0.3.3]: 520] Container testcontainers/ryuk:0.3.3 started in PT1.3476941S
+[12:29:52,907] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[12:29:52,907] INFO [org.testcontainers.DockerClientFactory: 220] Checking the system...
+[12:29:52,908] INFO [org.testcontainers.DockerClientFactory: 241] ?? Docker server version should be at least 1.6.0
+[12:29:52,908] INFO [docker[postgres:13]: 376] Creating container for image: postgres:13
+[12:29:52,937] INFO [docker[postgres:13]: 440] Container postgres:13 is starting: 72bbc543c226446333279f3539502596cda72db935231e3376c83dc86d8f5856
+[12:29:54,747] INFO [docker[postgres:13]: 520] Container postgres:13 started in PT1.8383906S
+[12:29:54,824] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.9.Final
+[12:29:55,051] INFO [Hibernate Types: 298] This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+[12:29:55,491] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[12:29:55,588] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[12:29:55,593] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:51663/test?loggerLevel=OFF]
+[12:29:55,594] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=test}
+[12:29:55,595] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
+[12:29:55,600] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
+[12:29:55,709] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+Hibernate: 
+    
+    alter table if exists company_locale 
+       drop constraint if exists FKqutt2770bj65hl7m184e5rhgt
+[12:29:56,478] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1328f482] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[12:29:56,481] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,482] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "company_locale" does not exist, skipping
+Hibernate: 
+    
+    alter table if exists payment 
+       drop constraint if exists FKb2u6muqxjvdfbib5u91afawcy
+[12:29:56,483] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,484] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "payment" does not exist, skipping
+Hibernate: 
+    
+    alter table if exists profile 
+       drop constraint if exists FKs14jvsf9tqrcnly0afsv0ngwv
+[12:29:56,485] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,486] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "profile" does not exist, skipping
+Hibernate: 
+    
+    alter table if exists users 
+       drop constraint if exists FKbwv4uspmyi7xqjwcrgxow361t
+[12:29:56,488] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,488] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users" does not exist, skipping
+Hibernate: 
+    
+    alter table if exists users_chat 
+       drop constraint if exists FKsqcmgoiby6k7d66sx1nxb5835
+[12:29:56,490] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,491] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
+Hibernate: 
+    
+    alter table if exists users_chat 
+       drop constraint if exists FK4n5ew9rhowx26b46nwirrcfdi
+[12:29:56,494] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,494] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists chat cascade
+[12:29:56,496] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,497] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "chat" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists company cascade
+[12:29:56,499] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,499] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists company_locale cascade
+[12:29:56,501] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,501] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company_locale" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists payment cascade
+[12:29:56,503] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,503] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "payment" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists profile cascade
+[12:29:56,505] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,505] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "profile" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists users cascade
+[12:29:56,506] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,507] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users" does not exist, skipping
+Hibernate: 
+    
+    drop table if exists users_chat cascade
+[12:29:56,510] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[12:29:56,510] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users_chat" does not exist, skipping
+Hibernate: 
+    
+    create table chat (
+       id int8 generated by default as identity,
+        name varchar(255) not null,
+        primary key (id)
+    )
+[12:29:56,514] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b4829aa] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Hibernate: 
+    
+    create table company (
+       id int4 generated by default as identity,
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table company_locale (
+       company_id int4 not null,
+        description varchar(255),
+        language varchar(255)
+    )
+Hibernate: 
+    
+    create table payment (
+       id int8 generated by default as identity,
+        amount int4 not null,
+        receiver_id int8 not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table profile (
+       id int8 generated by default as identity,
+        language varchar(255),
+        street varchar(255),
+        user_id int8,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table users (
+       id int8 generated by default as identity,
+        info uuid,
+        birthdate date,
+        firstname varchar(255),
+        lastname varchar(255),
+        role varchar(255),
+        username varchar(255),
+        company_id int4,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table users_chat (
+       id int8 generated by default as identity,
+        created_at timestamp,
+        created_by varchar(255),
+        chat_id int8,
+        user_id int8,
+        primary key (id)
+    )
+Hibernate: 
+    
+    alter table if exists chat 
+       add constraint UK_dk0m5eenxaf7wywks6mj0381x unique (name)
+Hibernate: 
+    
+    alter table if exists users 
+       add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: 
+    
+    alter table if exists company_locale 
+       add constraint FKqutt2770bj65hl7m184e5rhgt 
+       foreign key (company_id) 
+       references company
+Hibernate: 
+    
+    alter table if exists payment 
+       add constraint FKb2u6muqxjvdfbib5u91afawcy 
+       foreign key (receiver_id) 
+       references users
+Hibernate: 
+    
+    alter table if exists profile 
+       add constraint FKs14jvsf9tqrcnly0afsv0ngwv 
+       foreign key (user_id) 
+       references users
+Hibernate: 
+    
+    alter table if exists users 
+       add constraint FKbwv4uspmyi7xqjwcrgxow361t 
+       foreign key (company_id) 
+       references company
+Hibernate: 
+    
+    alter table if exists users_chat 
+       add constraint FKsqcmgoiby6k7d66sx1nxb5835 
+       foreign key (chat_id) 
+       references chat
+Hibernate: 
+    
+    alter table if exists users_chat 
+       add constraint FK4n5ew9rhowx26b46nwirrcfdi 
+       foreign key (user_id) 
+       references users
+[12:29:56,572] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    insert 
+    into
+        company
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        company
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        company
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        users
+        (company_id, info, birthdate, firstname, lastname, role, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (company_id, info, birthdate, firstname, lastname, role, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (company_id, info, birthdate, firstname, lastname, role, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (company_id, info, birthdate, firstname, lastname, role, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (company_id, info, birthdate, firstname, lastname, role, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    insert 
+    into
+        payment
+        (amount, receiver_id) 
+    values
+        (?, ?)
+Hibernate: 
+    select
+        company0_.name as col_0_0_,
+        avg(payments2_.amount) as col_1_0_ 
+    from
+        company company0_ 
+    inner join
+        users users1_ 
+            on company0_.id=users1_.company_id 
+    inner join
+        payment payments2_ 
+            on users1_.id=payments2_.receiver_id 
+    group by
+        company0_.name 
+    order by
+        company0_.name
+[12:29:56,924] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:51663/test?loggerLevel=OFF]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
