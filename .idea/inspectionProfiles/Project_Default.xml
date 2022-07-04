@@ -5,6 +5,7 @@
       <option name="excludeList">
         <list>
           <option value="org.hibernate:hibernate-core" />
+          <option value="org.hibernate:hibernate-jpamodelgen" />
         </list>
       </option>
     </inspection_tool>

@@ -11,8 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "username")
-@ToString(exclude = {"company", "profile", "userChats"})
+@ToString(exclude = {"company", "profile", "userChats", "payments"})
 @Entity
 @Builder
 @Table(name = "users")

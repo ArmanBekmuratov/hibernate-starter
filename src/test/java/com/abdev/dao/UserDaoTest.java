@@ -91,7 +91,7 @@ public class UserDaoTest {
         @Cleanup Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        List<Payment> applePayments = userDao.findAllPaymentsByCompanyName(session, "Google");
+        List<Payment> applePayments = userDao.findAllPaymentsByCompanyName(session, "Apple");
         assertThat(applePayments).hasSize(5);
 
         List<Integer> amounts = applePayments.stream().map(Payment::getAmount).collect(toList());

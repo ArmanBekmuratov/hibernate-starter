@@ -1,16 +1,14 @@
 package com.abdev;
 
-import com.abdev.entity.BirthDay;
 import com.abdev.entity.Company;
-import com.abdev.entity.PersonalInfo;
 import com.abdev.entity.User;
 import com.abdev.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class HibernateRunner {
 
