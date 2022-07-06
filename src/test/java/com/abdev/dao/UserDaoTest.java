@@ -1,6 +1,7 @@
 package com.abdev.dao;
 
 import com.abdev.dto.CompanyDto;
+import com.abdev.dto.PaymentFilter;
 import com.abdev.entity.Payment;
 import com.abdev.entity.User;
 import com.abdev.util.HibernateTestUtil;
@@ -86,6 +87,7 @@ public class UserDaoTest {
         assertThat(fullNames).containsExactlyInAnyOrder("Sergey Brin", "Diane Greene");
 
         session.getTransaction().commit();
+
     }
 
     @Test
@@ -107,7 +109,11 @@ public class UserDaoTest {
         @Cleanup Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        Double averagePaymentAmount = userDao.findAveragePaymentAmountByFirstAndLastNames(session, "Bill", "Gates");
+        PaymentFilter filter = PaymentFilter.builder()
+                .lastName("Gates")
+                .firstName("Bill")
+                .build();
+        Double averagePaymentAmount = userDao.findAveragePaymentAmountByFirstAndLastNames(session,filter);
         assertThat(averagePaymentAmount).isEqualTo(300.0);
 
         session.getTransaction().commit();

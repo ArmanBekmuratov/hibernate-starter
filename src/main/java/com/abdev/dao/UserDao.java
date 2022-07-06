@@ -1,13 +1,16 @@
 package com.abdev.dao;
 
+import com.abdev.dto.PaymentFilter;
 import com.abdev.entity.*;
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQuery;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -171,14 +174,26 @@ public class UserDao {
     /**
      * Returns the average salary of an employee with the given first and last name
      */
-    public Double findAveragePaymentAmountByFirstAndLastNames(Session session, String firstName, String lastName) {
+    public Double findAveragePaymentAmountByFirstAndLastNames(Session session, PaymentFilter filter) {
         //  ---------- Querydsl ----------------
+        List<Predicate> predicates = new ArrayList<>();
+//        if (filter.getFirstName() != null) {
+//            predicates.add(user.personalInfo.firstname.eq(filter.getFirstName()));
+//        }
+//
+//        if (filter.getLastName() != null) {
+//            predicates.add(user.personalInfo.lastname.eq(filter.getLastName()));
+//        }
+        var predicate = QPredicate.builder()
+                .add(filter.getFirstName(), user.personalInfo.firstname::eq)
+                .add(filter.getLastName(), user.personalInfo.lastname::eq)
+                .buildAnd();
+
         return new JPAQuery<Double>(session)
                 .select(payment.amount.avg())
                 .from(payment)
                 .join(payment.receiver, user)
-                .where(user.personalInfo.firstname.eq(firstName)
-                                .and(user.personalInfo.lastname.eq(lastName)))
+                .where(predicate)
                 .fetchFirst();
         /*  ----------  HQL ----------------
         return session.createQuery("select avg(p.amount) from Payment p " +
