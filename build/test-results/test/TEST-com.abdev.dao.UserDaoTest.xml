@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.abdev.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-04T05:13:08" hostname="DESKTOP-L2SUHQG" time="0.176">
+<testsuite name="com.abdev.dao.UserDaoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-06T04:50:01" hostname="DESKTOP-L2SUHQG" time="0.235">
   <properties/>
-  <testcase name="findAllPaymentsByCompanyName()" classname="com.abdev.dao.UserDaoTest" time="0.176"/>
-  <system-out><![CDATA[[22:13:04,045] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-[22:13:04,060] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 363] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-[22:13:04,471] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 273] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
-[22:13:04,472] INFO [org.testcontainers.DockerClientFactory: 183] Docker host IP address is localhost
-[22:13:04,489] INFO [org.testcontainers.DockerClientFactory: 190] Connected to docker: 
+  <testcase name="isItPossible()" classname="com.abdev.dao.UserDaoTest" time="0.235"/>
+  <system-out><![CDATA[[21:49:56,004] INFO [org.testcontainers.utility.ImageNameSubstitutor: 55] Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[21:49:56,024] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 363] Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[21:49:56,433] INFO [org.testcontainers.dockerclient.DockerClientProviderStrategy: 273] Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+[21:49:56,435] INFO [org.testcontainers.DockerClientFactory: 183] Docker host IP address is localhost
+[21:49:56,453] INFO [org.testcontainers.DockerClientFactory: 190] Connected to docker: 
   Server Version: 20.10.17
   API Version: 1.41
   Operating System: Docker Desktop
   Total Memory: 7916 MB
-[22:13:04,511] INFO [docker[testcontainers/ryuk:0.3.3]: 376] Creating container for image: testcontainers/ryuk:0.3.3
-[22:13:04,811] INFO [docker[testcontainers/ryuk:0.3.3]: 440] Container testcontainers/ryuk:0.3.3 is starting: c7939de8f439b0e83b5a4d75e50cc880750401c7d471de262689683a9a934472
-[22:13:05,468] INFO [docker[testcontainers/ryuk:0.3.3]: 520] Container testcontainers/ryuk:0.3.3 started in PT0.9697197S
-[22:13:05,475] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-[22:13:05,475] INFO [org.testcontainers.DockerClientFactory: 220] Checking the system...
-[22:13:05,476] INFO [org.testcontainers.DockerClientFactory: 241] ?? Docker server version should be at least 1.6.0
-[22:13:05,476] INFO [docker[postgres:13]: 376] Creating container for image: postgres:13
-[22:13:05,510] INFO [docker[postgres:13]: 440] Container postgres:13 is starting: 326219a4dd0573fe3f354c94d7ddb9f7e186dd8dce0856dd4ca4800a311456e8
-[22:13:07,039] INFO [docker[postgres:13]: 520] Container postgres:13 started in PT1.5629699S
-[22:13:07,080] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.9.Final
-[22:13:07,241] INFO [Hibernate Types: 298] This framework is proudly powered by:
+[21:49:56,477] INFO [docker[testcontainers/ryuk:0.3.3]: 376] Creating container for image: testcontainers/ryuk:0.3.3
+[21:49:56,794] INFO [docker[testcontainers/ryuk:0.3.3]: 440] Container testcontainers/ryuk:0.3.3 is starting: 02583ef9bc5e62c9ddddfcab3e89a1f0749351e1ea9b7ba457bcd9cd835b3a1d
+[21:49:57,579] INFO [docker[testcontainers/ryuk:0.3.3]: 520] Container testcontainers/ryuk:0.3.3 started in PT1.1165361S
+[21:49:57,586] INFO [org.testcontainers.utility.RyukResourceReaper: 43] Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[21:49:57,587] INFO [org.testcontainers.DockerClientFactory: 220] Checking the system...
+[21:49:57,588] INFO [org.testcontainers.DockerClientFactory: 241] ?? Docker server version should be at least 1.6.0
+[21:49:57,588] INFO [docker[postgres:13]: 376] Creating container for image: postgres:13
+[21:49:57,616] INFO [docker[postgres:13]: 440] Container postgres:13 is starting: 79bf8a616b0fcec662d97d777ce821f76179a12a497c7cf62a43c46336ac5733
+[21:49:59,868] INFO [docker[postgres:13]: 520] Container postgres:13 started in PT2.2804844S
+[21:49:59,912] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 5.6.9.Final
+[21:50:00,081] INFO [Hibernate Types: 298] This framework is proudly powered by:
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  _    _                           _     _
@@ -42,85 +42,85 @@ Hypersistence Optimizer is that tool! For more details, go to:
 https://vladmihalcea.com/hypersistence-optimizer/
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-[22:13:07,570] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-[22:13:07,646] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-[22:13:07,649] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:55929/test?loggerLevel=OFF]
-[22:13:07,650] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=test}
-[22:13:07,650] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
-[22:13:07,653] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
-[22:13:07,727] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+[21:50:00,429] INFO [org.hibernate.annotations.common.Version: 56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[21:50:00,511] WARN [org.hibernate.orm.connections.pooling: 75] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[21:50:00,515] INFO [org.hibernate.orm.connections.pooling: 119] HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:62736/test?loggerLevel=OFF]
+[21:50:00,516] INFO [org.hibernate.orm.connections.pooling: 128] HHH10001001: Connection properties: {password=****, user=test}
+[21:50:00,516] INFO [org.hibernate.orm.connections.pooling: 132] HHH10001003: Autocommit mode: false
+[21:50:00,520] INFO [org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl: 322] HHH000115: Hibernate connection pool size: 20 (min=1)
+[21:50:00,604] INFO [org.hibernate.dialect.Dialect: 175] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
 Hibernate: 
     
     alter table if exists company_locale 
        drop constraint if exists FKqutt2770bj65hl7m184e5rhgt
-[22:13:08,382] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@628b503a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-[22:13:08,385] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,385] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "company_locale" does not exist, skipping
+[21:50:01,328] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@dbc7e0a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[21:50:01,331] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,332] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "company_locale" does not exist, skipping
 Hibernate: 
     
     alter table if exists payment 
        drop constraint if exists FKb2u6muqxjvdfbib5u91afawcy
-[22:13:08,388] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,388] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "payment" does not exist, skipping
+[21:50:01,334] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,334] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "payment" does not exist, skipping
 Hibernate: 
     
     alter table if exists profile 
        drop constraint if exists FKs14jvsf9tqrcnly0afsv0ngwv
-[22:13:08,390] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,390] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "profile" does not exist, skipping
+[21:50:01,336] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,337] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "profile" does not exist, skipping
 Hibernate: 
     
     alter table if exists users 
        drop constraint if exists FKbwv4uspmyi7xqjwcrgxow361t
-[22:13:08,392] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,392] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users" does not exist, skipping
+[21:50:01,339] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,339] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users" does not exist, skipping
 Hibernate: 
     
     alter table if exists users_chat 
        drop constraint if exists FKsqcmgoiby6k7d66sx1nxb5835
-[22:13:08,394] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,394] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
+[21:50:01,341] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,341] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
 Hibernate: 
     
     alter table if exists users_chat 
        drop constraint if exists FK4n5ew9rhowx26b46nwirrcfdi
-[22:13:08,396] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,396] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
+[21:50:01,343] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,344] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] relation "users_chat" does not exist, skipping
 Hibernate: 
     
     drop table if exists chat cascade
-[22:13:08,398] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,398] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "chat" does not exist, skipping
+[21:50:01,346] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,346] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "chat" does not exist, skipping
 Hibernate: 
     
     drop table if exists company cascade
-[22:13:08,399] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,400] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company" does not exist, skipping
+[21:50:01,348] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,348] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company" does not exist, skipping
 Hibernate: 
     
     drop table if exists company_locale cascade
-[22:13:08,401] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,402] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company_locale" does not exist, skipping
+[21:50:01,350] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,350] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "company_locale" does not exist, skipping
 Hibernate: 
     
     drop table if exists payment cascade
-[22:13:08,404] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,404] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "payment" does not exist, skipping
+[21:50:01,352] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,353] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "payment" does not exist, skipping
 Hibernate: 
     
     drop table if exists profile cascade
-[22:13:08,406] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,406] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "profile" does not exist, skipping
+[21:50:01,354] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,355] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "profile" does not exist, skipping
 Hibernate: 
     
     drop table if exists users cascade
-[22:13:08,407] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,407] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users" does not exist, skipping
+[21:50:01,357] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,357] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users" does not exist, skipping
 Hibernate: 
     
     drop table if exists users_chat cascade
-[22:13:08,409] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
-[22:13:08,409] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users_chat" does not exist, skipping
+[21:50:01,360] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 230] SQL Warning Code: 0, SQLState: 00000
+[21:50:01,360] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 231] table "users_chat" does not exist, skipping
 Hibernate: 
     
     create table chat (
@@ -128,7 +128,7 @@ Hibernate:
         name varchar(255) not null,
         primary key (id)
     )
-[22:13:08,413] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@226e07e7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[21:50:01,364] INFO [org.hibernate.orm.connections.access: 48] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3722f39d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 Hibernate: 
     
     create table company (
@@ -227,7 +227,7 @@ Hibernate:
        add constraint FK4n5ew9rhowx26b46nwirrcfdi 
        foreign key (user_id) 
        references users
-[22:13:08,457] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[21:50:01,418] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Hibernate: 
     insert 
     into
@@ -384,36 +384,32 @@ Hibernate:
         (?, ?)
 Hibernate: 
     select
-        payment0_.id as id1_3_,
-        payment0_.amount as amount2_3_,
-        payment0_.receiver_id as receiver3_3_ 
+        user0_.id as col_0_0_,
+        avg(payments1_.amount) as col_1_0_,
+        user0_.id as id1_5_,
+        user0_.company_id as company_8_5_,
+        user0_.info as info2_5_,
+        user0_.birthdate as birthdat3_5_,
+        user0_.firstname as firstnam4_5_,
+        user0_.lastname as lastname5_5_,
+        user0_.role as role6_5_,
+        user0_.username as username7_5_ 
     from
-        payment payment0_ 
+        users user0_ 
     inner join
-        users user1_ 
-            on payment0_.receiver_id=user1_.id 
-    inner join
-        company company2_ 
-            on user1_.company_id=company2_.id 
-    where
-        company2_.name=? 
+        payment payments1_ 
+            on user0_.id=payments1_.receiver_id 
+    group by
+        user0_.id 
+    having
+        avg(payments1_.amount)>(
+            select
+                avg(payment2_.amount) 
+            from
+                payment payment2_
+        ) 
     order by
-        user1_.firstname asc,
-        payment0_.amount asc
-Hibernate: 
-    select
-        user0_.id as id1_5_0_,
-        user0_.company_id as company_8_5_0_,
-        user0_.info as info2_5_0_,
-        user0_.birthdate as birthdat3_5_0_,
-        user0_.firstname as firstnam4_5_0_,
-        user0_.lastname as lastname5_5_0_,
-        user0_.role as role6_5_0_,
-        user0_.username as username7_5_0_ 
-    from
-        users user0_ 
-    where
-        user0_.id=?
+        user0_.firstname asc
 Hibernate: 
     select
         profile0_.id as id1_4_0_,
@@ -426,20 +422,6 @@ Hibernate:
         profile0_.user_id=?
 Hibernate: 
     select
-        user0_.id as id1_5_0_,
-        user0_.company_id as company_8_5_0_,
-        user0_.info as info2_5_0_,
-        user0_.birthdate as birthdat3_5_0_,
-        user0_.firstname as firstnam4_5_0_,
-        user0_.lastname as lastname5_5_0_,
-        user0_.role as role6_5_0_,
-        user0_.username as username7_5_0_ 
-    from
-        users user0_ 
-    where
-        user0_.id=?
-Hibernate: 
-    select
         profile0_.id as id1_4_0_,
         profile0_.language as language2_4_0_,
         profile0_.street as street3_4_0_,
@@ -448,7 +430,7 @@ Hibernate:
         profile profile0_ 
     where
         profile0_.user_id=?
-[22:13:08,782] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:55929/test?loggerLevel=OFF]
+[21:50:01,808] INFO [org.hibernate.orm.connections.pooling: 550] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:62736/test?loggerLevel=OFF]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
