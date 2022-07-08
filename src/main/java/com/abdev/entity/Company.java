@@ -2,6 +2,7 @@ package com.abdev.entity;
 
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.SortNatural;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.*;
 @ToString(of = "id")
 @Builder
 @Entity
+//@BatchSize(size = 3)
 public class Company {
 
     @Id
@@ -23,7 +25,7 @@ public class Company {
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @MapKey(name = "username")
     //@SortNatural
     private Map<String, User> users = new HashMap<>();
